@@ -15,6 +15,7 @@ import {
   Card,
   CardContent,
   Grid,
+  Box,
 } from "@mui/material";
 import { Download, Today, Close } from "@mui/icons-material";
 import timetabledata from "../data/timetabledata";
@@ -29,15 +30,27 @@ export default function Timetable() {
     doc.text(`Weekly Timetable`, 14, 16);
 
     let y = 30;
+    const lineHeight = 6;
+    const pageHeight = doc.internal.pageSize.height;
+
     Object.entries(timetabledata).forEach(([day, items]) => {
+      if (y + 10 > pageHeight - 20) {
+        doc.addPage();
+        y = 20;
+      }
+
       doc.setFontSize(14);
       doc.text(day, 14, y);
       y += 10;
 
       doc.setFontSize(12);
       items.forEach((item) => {
+        if (y + lineHeight > pageHeight - 20) {
+          doc.addPage();
+          y = 20;
+        }
         doc.text(`- ${item.time}: ${item.activity}`, 14, y);
-        y += 6;
+        y += lineHeight;
       });
 
       y += 10;
@@ -47,65 +60,141 @@ export default function Timetable() {
   };
 
   return (
-    <div style={{ padding: 24, backgroundColor: "#f9f9f9", minHeight: "100vh" }}>
-      <Typography variant="h3" sx={{ fontWeight: 700, color: "#1976d2", textAlign: "center", mb: 2 }}>
-        Schedly
+    <div
+      style={{
+        padding: 24,
+        backgroundColor: "#f9f9f9",
+        minHeight: "100vh",
+      }}
+    >
+      {/* Header Section */}
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          mb: 3,
+          px: 2,
+          flexWrap: "wrap",
+        }}
+      >
+        <Typography
+          variant="h3"
+          sx={{
+            fontWeight: 700,
+            color: "#1976d2",
+            mr: 2,
+          }}
+        >
+          Schedly
+        </Typography>
+
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={() => setShowModal(true)}
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            gap: 1,
+            backgroundColor: "#1976d2",
+            "&:hover": { backgroundColor: "#1565c0" },
+            px: 3,
+            py: 1.5,
+            borderRadius: 2,
+            boxShadow: 3,
+            mt: { xs: 2, sm: 0 },
+          }}
+        >
+          <Today />
+          View Full Timetable
+        </Button>
+      </Box>
+
+      {/* Subheading */}
+      <Typography
+        variant="h6"
+        sx={{
+          fontWeight: 400,
+          color: "#333",
+          textAlign: "center",
+          mb: 3,
+        }}
+      >
+        Welcome to Schedly, your personalized timetable tracker. Stay organized
+        by keeping track of your daily activities.
       </Typography>
 
-      <Typography variant="h6" sx={{ fontWeight: 400, color: "#333", textAlign: "center", mb: 3 }}>
-        Welcome to Schedly, your personalized timetable tracker. Stay organized by keeping track of your daily activities.
-      </Typography>
-
-      <Typography variant="h4" gutterBottom sx={{ fontWeight: 700, color: "#1976d2", textAlign: "center", mb: 3 }}>
+      {/* Today's Timetable Section */}
+      <Typography
+        variant="h4"
+        gutterBottom
+        sx={{
+          fontWeight: 700,
+          color: "#1976d2",
+          textAlign: "center",
+          mb: 3,
+        }}
+      >
         Today's Timetable – {today}
       </Typography>
 
       <Grid container spacing={2} justifyContent="center">
-        {timetabledata[today]?.map((item, index) => (
-          <Grid item key={index}>
-            <Card
-              sx={{
-                width: 300,
-                height: 200,
-                backgroundColor:
-                  index % 4 === 0
-                    ? "#e8f5e9"
-                    : index % 4 === 1
-                    ? "#e3f2fd"
-                    : index % 4 === 2
-                    ? "#fce4ec"
-                    : "#f5f5f5",
-                borderRadius: 2,
-                boxShadow: 3,
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "center",
-                transition: "0.3s ease-in-out",
-                "&:hover": {
-                  transform: "scale(1.05)",
-                  boxShadow: 8,
-                },
-              }}
-            >
-              <CardContent sx={{ p: 2 }}>
-                <Typography variant="h6" sx={{ fontWeight: 700, color: "#333", textAlign: "center", mb: 1 }}>
-                  {item.time}
-                </Typography>
-                <Typography
-                  variant="body1"
-                  sx={{
-                    fontWeight: 600,
-                    color: "#555",
-                    textAlign: "center",
-                    lineHeight: 1.5,
-                  }}
-                >
-                  {item.activity}
-                </Typography>
-              </CardContent>
-            </Card>
-          </Grid>
-        )) || (
+        {timetabledata[today]?.length > 0 ? (
+          timetabledata[today].map((item, index) => (
+            <Grid item key={index}>
+              <Card
+                sx={{
+                  width: 300,
+                  height: 200,
+                  backgroundColor:
+                    index % 4 === 0
+                      ? "#e8f5e9"
+                      : index % 4 === 1
+                      ? "#e3f2fd"
+                      : index % 4 === 2
+                      ? "#fce4ec"
+                      : "#f5f5f5",
+                  borderRadius: 2,
+                  boxShadow: 3,
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  transition: "0.3s ease-in-out",
+                  "&:hover": {
+                    transform: "scale(1.05)",
+                    boxShadow: 8,
+                  },
+                }}
+              >
+                <CardContent sx={{ p: 2 }}>
+                  <Typography
+                    variant="h6"
+                    sx={{
+                      fontWeight: 700,
+                      color: "#333",
+                      textAlign: "center",
+                      mb: 1,
+                    }}
+                  >
+                    {item.time}
+                  </Typography>
+                  <Typography
+                    variant="body1"
+                    sx={{
+                      fontWeight: 600,
+                      color: "#555",
+                      textAlign: "center",
+                      lineHeight: 1.5,
+                    }}
+                  >
+                    {item.activity}
+                  </Typography>
+                </CardContent>
+              </Card>
+            </Grid>
+          ))
+        ) : (
           <Grid item xs={12}>
             <Card
               sx={{
@@ -135,33 +224,24 @@ export default function Timetable() {
         )}
       </Grid>
 
-      <Button
-        variant="contained"
-        color="primary"
-        onClick={() => setShowModal(true)}
-        sx={{
-          mt: 4,
-          display: "flex",
-          alignItems: "center",
-          gap: 1,
-          backgroundColor: "#1976d2",
-          "&:hover": { backgroundColor: "#1565c0" },
-          px: 3,
-          py: 1.5,
-          borderRadius: 2,
-          boxShadow: 3,
-        }}
+      {/* Full Timetable Dialog */}
+      <Dialog
+        open={showModal}
+        onClose={() => setShowModal(false)}
+        fullWidth
+        maxWidth="md"
       >
-        <Today />
-        View Full Timetable
-      </Button>
-
-      <Dialog open={showModal} onClose={() => setShowModal(false)} fullWidth maxWidth="md">
-        <DialogTitle sx={{ fontWeight: 600 }}>Full Weekly Timetable</DialogTitle>
+        <DialogTitle sx={{ fontWeight: 600 }}>
+          Full Weekly Timetable
+        </DialogTitle>
         <DialogContent dividers>
           {Object.entries(timetabledata).map(([day, items]) => (
             <div key={day} style={{ marginBottom: 16 }}>
-              <Typography variant="h6" color="primary" sx={{ fontWeight: 600, mb: 1 }}>
+              <Typography
+                variant="h6"
+                color="primary"
+                sx={{ fontWeight: 600, mb: 1 }}
+              >
                 {day}
               </Typography>
               <List dense>
@@ -182,7 +262,12 @@ export default function Timetable() {
           ))}
         </DialogContent>
         <DialogActions>
-          <Button onClick={() => setShowModal(false)} color="secondary" variant="outlined" sx={{ fontWeight: 500 }}>
+          <Button
+            onClick={() => setShowModal(false)}
+            color="secondary"
+            variant="outlined"
+            sx={{ fontWeight: 500 }}
+          >
             <Close />
             Close
           </Button>
