@@ -107,7 +107,7 @@ export default function Timetable() {
           }}
         >
           <Today />
-          View Full Timetable
+          View More
         </Button>
       </Box>
 
