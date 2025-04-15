@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {jsPDF} from 'jspdf'
+import { jsPDF } from "jspdf";
 import { format } from "date-fns";
 import {
   Button,
@@ -12,10 +12,8 @@ import {
   ListItem,
   ListItemText,
   Divider,
-  Box,
   Card,
   CardContent,
-  CardActions,
   Grid,
 } from "@mui/material";
 import { Download, Today, Close } from "@mui/icons-material";
@@ -50,75 +48,38 @@ export default function Timetable() {
 
   return (
     <div style={{ padding: 24, backgroundColor: "#f9f9f9", minHeight: "100vh" }}>
-      {/* App Name */}
-      <Typography
-        variant="h3"
-        sx={{
-          fontWeight: 700,
-          color: "#1976d2",
-          textAlign: "center",
-          marginBottom: 2,
-          fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
-        }}
-      >
+      <Typography variant="h3" sx={{ fontWeight: 700, color: "#1976d2", textAlign: "center", mb: 2 }}>
         Schedly
       </Typography>
 
-      {/* Welcome Text */}
-      <Typography
-        variant="h6"
-        sx={{
-          fontWeight: 400,
-          color: "#333",
-          textAlign: "center",
-          marginBottom: 3,
-        }}
-      >
+      <Typography variant="h6" sx={{ fontWeight: 400, color: "#333", textAlign: "center", mb: 3 }}>
         Welcome to Schedly, your personalized timetable tracker. Stay organized by keeping track of your daily activities.
       </Typography>
 
-      <Typography
-        variant="h4"
-        gutterBottom
-        sx={{
-          fontWeight: 700,
-          color: "#1976d2",
-          textAlign: "center",
-          marginBottom: 3,
-        }}
-      >
+      <Typography variant="h4" gutterBottom sx={{ fontWeight: 700, color: "#1976d2", textAlign: "center", mb: 3 }}>
         Today's Timetable – {today}
       </Typography>
 
-      <Grid
-        container
-        spacing={2}
-        justifyContent="center"
-        sx={{
-          display: "flex",
-          flexWrap: "wrap",
-          gap: 2,
-          marginBottom: 3,
-        }}
-      >
+      <Grid container spacing={2} justifyContent="center">
         {timetabledata[today]?.map((item, index) => (
-          <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
+          <Grid item key={index}>
             <Card
               sx={{
+                width: 300,
+                height: 200,
                 backgroundColor:
                   index % 4 === 0
-                    ? "#e8f5e9" // Light Green
+                    ? "#e8f5e9"
                     : index % 4 === 1
-                    ? "#e3f2fd" // Light Blue
+                    ? "#e3f2fd"
                     : index % 4 === 2
-                    ? "#fce4ec" // Light Pink
-                    : "#f5f5f5", // Light Grey
+                    ? "#fce4ec"
+                    : "#f5f5f5",
                 borderRadius: 2,
                 boxShadow: 3,
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "center",
-                height: "200px", // Adjusted height to accommodate two lines of text
                 transition: "0.3s ease-in-out",
                 "&:hover": {
                   transform: "scale(1.05)",
@@ -126,31 +87,20 @@ export default function Timetable() {
                 },
               }}
             >
-              <CardContent sx={{ padding: 2 }}>
-                {/* Time */}
-                <Typography
-                  variant="h6"
-                  sx={{
-                    fontWeight: 700, // Bold for time
-                    color: "#333",
-                    textAlign: "center",
-                    lineHeight: 1.5,
-                    marginBottom: 1,
-                  }}
-                >
-                  {item.time} {/* Time in bold */}
+              <CardContent sx={{ p: 2 }}>
+                <Typography variant="h6" sx={{ fontWeight: 700, color: "#333", textAlign: "center", mb: 1 }}>
+                  {item.time}
                 </Typography>
-                {/* Activity */}
                 <Typography
                   variant="body1"
                   sx={{
-                    fontWeight: 400, // Regular font for the description
+                    fontWeight: 600,
                     color: "#555",
                     textAlign: "center",
                     lineHeight: 1.5,
                   }}
                 >
-                  {item.activity} {/* Description or activity */}
+                  {item.activity}
                 </Typography>
               </CardContent>
             </Card>
@@ -190,13 +140,14 @@ export default function Timetable() {
         color="primary"
         onClick={() => setShowModal(true)}
         sx={{
-          marginTop: 3,
+          mt: 4,
           display: "flex",
           alignItems: "center",
           gap: 1,
           backgroundColor: "#1976d2",
           "&:hover": { backgroundColor: "#1565c0" },
-          padding: "12px 24px",
+          px: 3,
+          py: 1.5,
           borderRadius: 2,
           boxShadow: 3,
         }}
@@ -205,21 +156,12 @@ export default function Timetable() {
         View Full Timetable
       </Button>
 
-      <Dialog
-        open={showModal}
-        onClose={() => setShowModal(false)}
-        fullWidth
-        maxWidth="md"
-      >
+      <Dialog open={showModal} onClose={() => setShowModal(false)} fullWidth maxWidth="md">
         <DialogTitle sx={{ fontWeight: 600 }}>Full Weekly Timetable</DialogTitle>
         <DialogContent dividers>
           {Object.entries(timetabledata).map(([day, items]) => (
             <div key={day} style={{ marginBottom: 16 }}>
-              <Typography
-                variant="h6"
-                color="primary"
-                sx={{ fontWeight: 600, marginBottom: 1 }}
-              >
+              <Typography variant="h6" color="primary" sx={{ fontWeight: 600, mb: 1 }}>
                 {day}
               </Typography>
               <List dense>
@@ -227,15 +169,10 @@ export default function Timetable() {
                   <ListItem key={index}>
                     <ListItemText
                       primary={
-                        <div>
+                        <Typography sx={{ fontWeight: 500 }}>
                           <strong>{item.time}</strong>: {item.activity}
-                        </div>
+                        </Typography>
                       }
-                      sx={{
-                        fontSize: "1rem",
-                        fontWeight: 500,
-                        color: "#333",
-                      }}
                     />
                   </ListItem>
                 ))}
@@ -245,12 +182,7 @@ export default function Timetable() {
           ))}
         </DialogContent>
         <DialogActions>
-          <Button
-            onClick={() => setShowModal(false)}
-            color="secondary"
-            variant="outlined"
-            sx={{ fontWeight: 500 }}
-          >
+          <Button onClick={() => setShowModal(false)} color="secondary" variant="outlined" sx={{ fontWeight: 500 }}>
             <Close />
             Close
           </Button>
