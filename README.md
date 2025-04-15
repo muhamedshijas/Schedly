@@ -14,11 +14,6 @@ Schedly is a modern, responsive weekly timetable app built with **React** and **
 
 ---
 
-## 📸 Screenshots
-
-> (Include screenshots here if available – UI, PDF download preview, etc.)
-
----
 
 ## 🛠 Tech Stack
 
