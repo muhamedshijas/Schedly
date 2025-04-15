@@ -1,70 +1,91 @@
-# Getting Started with Create React App
+# 📅 Schedly – Weekly Timetable Tracker
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Schedly is a modern, responsive weekly timetable app built with **React** and **Material-UI**. It helps users stay organized by displaying their schedule for the current day and the entire week. Users can also export their full timetable as a professional PDF with just one click.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🚀 Features
 
-### `npm start`
+- 📆 View today’s schedule dynamically
+- 🗓️ Full weekly timetable view in a modal
+- 📄 Download timetable as a PDF
+- 💻 Clean and responsive Material-UI design
+- 🎨 Hover effects and color-coded activity cards
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 📸 Screenshots
 
-### `npm test`
+> (Include screenshots here if available – UI, PDF download preview, etc.)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## 🛠 Tech Stack
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **React** – JavaScript library for building UIs
+- **Material-UI** – For components and styling
+- **jsPDF** – To generate PDF downloads
+- **date-fns** – Lightweight date utility for formatting
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 📦 Installation
 
-### `npm run eject`
+Clone this repo and install dependencies:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+git clone https://github.com/yourusername/schedly.git
+cd schedly
+npm install
+npm start
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Then open your browser and visit:
+http://localhost:3000
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+📄 PDF Export Instructions
+Click the View Full Timetable button on the top right.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+In the dialog that appears, click Download as PDF.
 
-## Learn More
+A file named Weekly_Timetable.pdf will be downloaded containing all weekly schedules.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+🧠 Inspiration
+Schedly was built as a productivity and UI enhancement project. The goal was to create a beautiful and functional schedule app using React, styled-components, and PDF generation for practical use cases.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+🔮 Future Improvements
+ Editable timetable with local storage support
 
-### Code Splitting
+ User authentication & cloud sync
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+ Dark mode toggle
 
-### Analyzing the Bundle Size
+ Mobile app version using React Native
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+🙌 Contributing
+Contributions, suggestions, and feature requests are welcome!
+Fork the project, make your changes, and open a pull request.
 
-### Making a Progressive Web App
+🌐 Live Demo
+https://schedly.vercel.app/
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+)
 
-### Advanced Configuration
+📃 License
+This project is licensed under the MIT License.
+Feel free to use, modify, and distribute with attribution.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+👤 Author
+Muhamed Shijas
+Full Stack Developer – React | Next.js | NestJS | MongoDB
+📧 shijushijas157@gmail.com
+🌐 Portfolio | GitHub
 
-### Deployment
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
+## 💡 Bonus Sections You Can Add (Optional):
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- ✨ **Planned Features**: Add notification reminders, editable timetable, local storage saving
+- ⚙️ **Settings**: Dark mode toggle, customizable colors
+---
+
