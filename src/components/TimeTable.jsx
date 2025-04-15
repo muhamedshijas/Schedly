@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { format } from "date-fns";
 import {jsPDF} from 'jspdf'
+import { format } from "date-fns";
 import {
   Button,
   Dialog,
@@ -38,7 +38,7 @@ export default function Timetable() {
 
       doc.setFontSize(12);
       items.forEach((item) => {
-        doc.text(`- ${item}`, 14, y);
+        doc.text(`- ${item.time}: ${item.activity}`, 14, y);
         y += 6;
       });
 
@@ -50,6 +50,33 @@ export default function Timetable() {
 
   return (
     <div style={{ padding: 24, backgroundColor: "#f9f9f9", minHeight: "100vh" }}>
+      {/* App Name */}
+      <Typography
+        variant="h3"
+        sx={{
+          fontWeight: 700,
+          color: "#1976d2",
+          textAlign: "center",
+          marginBottom: 2,
+          fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
+        }}
+      >
+        Schedly
+      </Typography>
+
+      {/* Welcome Text */}
+      <Typography
+        variant="h6"
+        sx={{
+          fontWeight: 400,
+          color: "#333",
+          textAlign: "center",
+          marginBottom: 3,
+        }}
+      >
+        Welcome to Schedly, your personalized timetable tracker. Stay organized by keeping track of your daily activities.
+      </Typography>
+
       <Typography
         variant="h4"
         gutterBottom
@@ -91,7 +118,7 @@ export default function Timetable() {
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "center",
-                height: "150px",
+                height: "200px", // Adjusted height to accommodate two lines of text
                 transition: "0.3s ease-in-out",
                 "&:hover": {
                   transform: "scale(1.05)",
@@ -99,17 +126,31 @@ export default function Timetable() {
                 },
               }}
             >
-              <CardContent>
+              <CardContent sx={{ padding: 2 }}>
+                {/* Time */}
                 <Typography
                   variant="h6"
                   sx={{
-                    fontWeight: 600,
+                    fontWeight: 700, // Bold for time
                     color: "#333",
+                    textAlign: "center",
+                    lineHeight: 1.5,
+                    marginBottom: 1,
+                  }}
+                >
+                  {item.time} {/* Time in bold */}
+                </Typography>
+                {/* Activity */}
+                <Typography
+                  variant="body1"
+                  sx={{
+                    fontWeight: 400, // Regular font for the description
+                    color: "#555",
                     textAlign: "center",
                     lineHeight: 1.5,
                   }}
                 >
-                  {item}
+                  {item.activity} {/* Description or activity */}
                 </Typography>
               </CardContent>
             </Card>
@@ -185,7 +226,11 @@ export default function Timetable() {
                 {items.map((item, index) => (
                   <ListItem key={index}>
                     <ListItemText
-                      primary={item}
+                      primary={
+                        <div>
+                          <strong>{item.time}</strong>: {item.activity}
+                        </div>
+                      }
                       sx={{
                         fontSize: "1rem",
                         fontWeight: 500,
