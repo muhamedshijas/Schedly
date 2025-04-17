@@ -58,7 +58,7 @@ export default function Timetable() {
 
     doc.save("Weekly_Timetable.pdf");
   };
-
+  console.log(timetabledata[today]);
   return (
     <div
       style={{
@@ -124,7 +124,54 @@ export default function Timetable() {
         Welcome to Schedly, your personalized timetable tracker. Stay organized
         by keeping track of your daily activities.
       </Typography>
-
+      <Card
+        sx={{
+          background: "linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%)",
+          borderRadius: 3,
+          boxShadow: 4,
+          p: 2,
+          maxWidth: 400,
+          maxHeight: 120,
+          mx: "auto",
+          mb: 4,
+        }}
+      >
+        <CardContent>
+          <Typography
+            variant="h6"
+            sx={{
+              fontWeight: 700,
+              color: "#0d47a1",
+              textAlign: "center",
+              mb: 2,
+            }}
+          >
+            🌙 Today’s Dua – {today}
+          </Typography>
+          <Typography
+            variant="body1"
+            sx={{
+              fontWeight: 600,
+              fontSize: "1.5rem",
+              textAlign: "center",
+              color: "#1a237e",
+              
+            }}
+          >
+            {timetabledata[today].dua}
+          </Typography>
+          <Typography
+            variant="body2"
+            sx={{
+              fontStyle: "italic",
+              textAlign: "center",
+              color: "#4a148c",
+            }}
+          >
+            {`(${timetabledata[today].meaning})`}
+          </Typography>
+        </CardContent>
+      </Card>
       {/* Today's Timetable Section */}
       <Typography
         variant="h4"
@@ -140,8 +187,8 @@ export default function Timetable() {
       </Typography>
 
       <Grid container spacing={2} justifyContent="center">
-        {timetabledata[today]?.length > 0 ? (
-          timetabledata[today].map((item, index) => (
+        {timetabledata[today]?.schedule.length > 0 ? (
+          timetabledata[today]?.schedule.map((item, index) => (
             <Grid item key={index}>
               <Card
                 sx={{
@@ -245,7 +292,7 @@ export default function Timetable() {
                 {day}
               </Typography>
               <List dense>
-                {items.map((item, index) => (
+                {items.schedule.map((item, index) => (
                   <ListItem key={index}>
                     <ListItemText
                       primary={
