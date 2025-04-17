@@ -131,7 +131,7 @@ export default function Timetable() {
           boxShadow: 4,
           p: 2,
           maxWidth: 400,
-          maxHeight: 120,
+          maxHeight: 150,
           mx: "auto",
           mb: 4,
         }}
