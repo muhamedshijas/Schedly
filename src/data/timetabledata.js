@@ -131,3 +131,4 @@ const timetabledata = {
     { time: '8:30 – 10:00', activity: 'Dinner + Plan upcoming week' }
   ]
 };
+export default timetabledata
