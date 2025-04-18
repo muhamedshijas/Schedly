@@ -155,7 +155,6 @@ export default function Timetable() {
               fontSize: "1.5rem",
               textAlign: "center",
               color: "#1a237e",
-              
             }}
           >
             {timetabledata[today].dua}
