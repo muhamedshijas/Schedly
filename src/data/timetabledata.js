@@ -2,26 +2,27 @@ const timetabledata = {
   Monday: {
     schedule: [
       { time: "5:00 – 5:30", activity: "Fajr + Dhikr" },
-      { time: "5:30 – 6:00", activity: "Light breakfast" },
-      { time: "6:00 – 6:30", activity: "Bathing / Freshen up" },
-      { time: "6:30 – 9:00", activity: "Deep coding (feature dev/fixes)" },
-      { time: "9:00 – 9:30", activity: "Job search + browsing roles" },
-      { time: "9:30 – 10:00", activity: "Breakfast break" },
+      { time: "5:30 – 5:45", activity: "Light breakfast" },
+      { time: "5:45 – 6:00", activity: "Cloth organizing" },
+      { time: "6:00 – 6:30", activity: "Just Chilling and Gaming" },
+      { time: "6:30 – 7:00", activity: "Fam Time" },
+      { time: "7:00 – 7:30", activity: "Bathing and Refreshing" },
+      { time: "7:30 – 8:00", activity: "Breakfast break" },
       {
-        time: "10:00 – 11:30",
-        activity: "Continue coding (Backend + API development)",
+        time: "8:00 – 9:00",
+        activity: "Job Browsing and Vision Updation",
       },
-      { time: "11:30 – 12:45", activity: "Apply for jobs / portfolio update" },
+      { time: "9:00 – 12:45", activity: "Coding Time" },
       { time: "1:00 – 1:20", activity: "Dhuhr prayer" },
       { time: "1:30 – 2:30", activity: "Lunch + Short rest" },
       { time: "2:30 – 4:00", activity: "Learning time (courses/docs)" },
-      { time: "4:00 – 4:30", activity: "Resume / LinkedIn tweak" },
-      { time: "4:30 – 4:50", activity: "Asr prayer" },
-      { time: "5:00 – 6:00", activity: "Open-source/github read" },
+      { time: "4:00 – 4:30", activity: "Asr Prayer" },
+      { time: "4:30 – 6:00", activity: "Break or Friends Time" },
       { time: "6:30 – 6:50", activity: "Maghrib prayer" },
-      { time: "7:00 – 8:00", activity: "Light coding / collab / review" },
+      { time: "7:00 – 7:30", activity: "Quran Recitiation" },
+      { time: "7:30 – 8:00", activity: "Bathing and Refreshment" },
       { time: "8:00 – 8:20", activity: "Isha prayer" },
-      { time: "8:30 – 10:00", activity: "Dinner + chill + Quran recite" },
+      { time: "8:30 – 10:00", activity: "Dinner + chill + code " },
       { time: "10:00 – 10:30", activity: "Wind down (journal/dua)" },
     ],
     dua: "اللَّهُمَّ زِدْنِي عِلْمًا نَافِعًا، وَرِزْقًا طَيِّبًا، وَعَمَلًا مُتَقَبَّلًا",
@@ -31,29 +32,28 @@ const timetabledata = {
   Tuesday: {
     schedule: [
       { time: "5:00 – 5:30", activity: "Fajr + Dhikr" },
-      { time: "5:30 – 6:00", activity: "Light breakfast" },
-      { time: "6:00 – 6:30", activity: "Bathing / Freshen up" },
+      { time: "5:30 – 6:00", activity: "Quran Time" },
+      { time: "6:00 – 6:30", activity: "Chill Time and Gaming" },
+      { time: "6:30 – 7:00", activity: "Fam Time" },
+      { time: "7:00 – 7:30", activity: "Bathing and Refreshing" },
+      { time: "7:30 – 8:00", activity: "Break Fast Time" },
+      { time: "8:00 – 9:00", activity: "Job Browsing and Vision Updation" },
+      { time: "9:00 – 10:00", activity: "Youtube Time" },
       {
-        time: "6:30 – 9:00",
-        activity: "Resume portfolio design / add projects",
-      },
-      { time: "9:00 – 9:30", activity: "Job search + check new postings" },
-      { time: "9:30 – 10:00", activity: "Break + tea/snack" },
-      {
-        time: "10:00 – 11:30",
+        time: "10:00 – 12:00",
         activity: "Work on Fullstack (Backend API + Frontend)",
       },
-      { time: "11:30 – 12:00", activity: "Apply to 3 jobs + email follow-ups" },
       { time: "12:00 – 1:00", activity: "Learn new frontend tricks" },
       { time: "1:00 – 1:20", activity: "Dhuhr prayer" },
       { time: "1:30 – 2:30", activity: "Lunch + Short nap" },
       { time: "2:30 – 4:00", activity: "Interview prep + mock questions" },
       { time: "4:00 – 4:30", activity: "Asr prayer" },
-      { time: "4:30 – 6:00", activity: "Work on side project (UI update)" },
-      { time: "6:30 – 6:50", activity: "Maghrib prayer" },
-      { time: "7:00 – 8:00", activity: "Chill with YouTube dev content" },
+      { time: "4:30 – 6:00", activity: "Chill time Movies/Friedns time" },
+      { time: "6:30 – 7:00", activity: "Maghrib prayer" },
+      { time: "7:00 – 7:30", activity: "Quram Time" },
+      { time: "7:30 – 8:00", activity: "Bathing and Refreshment" },
       { time: "8:00 – 8:20", activity: "Isha prayer" },
-      { time: "8:30 – 10:00", activity: "Dinner + light Qur’an reading" },
+      { time: "8:30 – 10:00", activity: "Dinner + Yt" },
       {
         time: "10:00 – 10:30",
         activity: "Gratitude journaling + plan next day",
@@ -112,7 +112,7 @@ const timetabledata = {
       { time: "8:30 – 10:00", activity: "Dinner + Reflection" },
     ],
     dua: "اللَّهُمَّ إِنِّي أَسْأَلُكَ الْعَفْوَ وَالْعَافِيَةَ",
-    meaning:"O Allah, I ask You for pardon and well-being."
+    meaning: "O Allah, I ask You for pardon and well-being.",
   },
   Friday: {
     schedule: [
@@ -135,7 +135,7 @@ const timetabledata = {
       { time: "8:30 – 10:00", activity: "Dinner + Quran + Relax" },
     ],
     dua: "اللَّهُمَّ إِنِّي أَسْأَلُكَ مِنْ فَضْلِكَ الْعَظِيمِ",
-    meaning:"O Allah, I ask You from Your great bounty"
+    meaning: "O Allah, I ask You from Your great bounty",
   },
   Saturday: {
     schedule: [
@@ -160,7 +160,7 @@ const timetabledata = {
       { time: "8:30 – 10:00", activity: "Dinner + Reflection" },
     ],
     dua: "يَا حَيُّ يَا قَيُّومُ، بِرَحْمَتِكَ أَسْتَغِيثُ",
-    meaning:"O Ever-Living, O Sustainer, in Your mercy I seek relief."
+    meaning: "O Ever-Living, O Sustainer, in Your mercy I seek relief.",
   },
   Sunday: {
     schedule: [
@@ -182,7 +182,8 @@ const timetabledata = {
       { time: "8:30 – 10:00", activity: "Dinner + Plan upcoming week" },
     ],
     dua: "رَبِّ إِنِّي لِمَا أَنْزَلْتَ إِلَيَّ مِنْ خَيْرٍ فَقِيرٌ",
-    meaning: "My Lord, indeed I am in need of whatever good You send down to me",
+    meaning:
+      "My Lord, indeed I am in need of whatever good You send down to me",
   },
 };
 
